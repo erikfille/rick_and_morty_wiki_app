@@ -9,28 +9,27 @@ const DivStyle = styled.div`
 
   button {
     padding: 3px 8px;
-    color: ${superLightBlue};
+    color: ${darkBlue};
     border: none;
     margin-left: 5px;
     border-radius: 0px 5px 5px 0px;
     background: linear-gradient(145deg, ${lightBlue}, ${darkBlue});
     box-shadow: 0px 0px 2px ${darkBlue}, 0px 0px 2px ${lightBlue};
+    border-radius: 0px 5px 5px 0px;
+    background: linear-gradient(145deg, #f0f0f0, #cacaca);
+    transition: 0.75s;
 
     &:hover{
-    font-weight: bold;
-
-    // color: ${darkBlue};
-    // border-radius: 0px 5px 5px 0px;
-    // background: linear-gradient(145deg, #f0f0f0, #cacaca);
-    // box-shadow: 0px 0px 2px #5a5a5a, 0px 0px 2px #ffffff;
-    // transition: 0.75s;
+    color: ${superLightBlue};
+    border-radius: 0px 5px 5px 0px;
+    background: linear-gradient(145deg, ${lightBlue}, ${darkBlue});
+    box-shadow: 0px 0px 2px ${darkBlue}, 0px 0px 2px ${lightBlue};
     }
   }
 
   input {
    border-radius: 5px 0px 0px 5px;
    background: linear-gradient(145deg, #f0f0f0, #cacaca);
-  //  box-shadow: 0px 0px 2px #5a5a5a, 0px 0px 2px #ffffff;
    scale: 103%;
   }
 `;
