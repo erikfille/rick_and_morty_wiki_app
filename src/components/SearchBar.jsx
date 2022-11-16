@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import {darkBlue, lightBlue, superLightBlue} from '../styles/GlobalStyles.js'
+
 
 const DivStyle = styled.div`
   padding-top: 15px;
@@ -8,17 +10,19 @@ const DivStyle = styled.div`
   button {
     font-weight: bold;
     padding: 3px 8px;
-    color: #ebefff;
+    color: ${superLightBlue};
     border: none;
     margin-left: 5px;
     border-radius: 0px 5px 5px 0px;
-    background: linear-gradient(145deg, #283A7D, #0f0c1d);
-    box-shadow: 0px 0px 2px #0f0c1d, 0px 0px 2px #283A7D;
+    background: linear-gradient(145deg, ${lightBlue}, ${darkBlue});
+    box-shadow: 0px 0px 2px ${darkBlue}, 0px 0px 2px ${lightBlue};
     z-index: 1;
+    transition: 0.75s;
+
 
 
     &:hover{
-    color: #0f0c1d;
+    color: ${darkBlue};
     border-radius: 0px 5px 5px 0px;
     background: linear-gradient(145deg, #f0f0f0, #cacaca);
     box-shadow: 0px 0px 2px #5a5a5a, 0px 0px 2px #ffffff;
