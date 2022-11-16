@@ -1,20 +1,22 @@
 import React from "react";
 import styled from "styled-components";
+import {darkBlue, lightBlue, superLightBlue} from '../styles/GlobalStyles.js'
+
 
 const CardContainer = styled.div`
   padding: 10px 0px 0px 0px;
   display: inline-block;
   position: center;
   border-radius: 30px;
-  background: linear-gradient(145deg, #283A7D, #0f0c1d);
-  box-shadow: 6px 6px 22px #0f0c1d, -6px -6px 22px #283A7D;
+  background: linear-gradient(145deg, ${lightBlue}, ${darkBlue});
+  // box-shadow: 3px 3px 10px ${darkBlue}, -3px -3px 10px ${lightBlue};
   margin: 30px;
   transition: 0.75s;
 
   &:hover {
     border-radius: 30px;
-    background: linear-gradient(145deg, #f0f0f0, #cacaca);
-    box-shadow: 6px 6px 22px #5a5a5a, -6px -6px 22px #ffffff;
+    background: linear-gradient(145deg, #ffffff, #cacaca);
+    box-shadow: 4px 4px 15px #5a5a5a, -4px -4px 15px #ffffff;
     scale: 103%;
     transition: 0.75s;
 
@@ -35,7 +37,7 @@ const CardContainer = styled.div`
   & button {
     font-size: 16px;
     color: red;
-    border: #ebefff solid 1px;
+    border: ${superLightBlue} solid 1px;
     font-weight: bold;
     transition: 0.5s;
     border-radius: 5px;
@@ -57,7 +59,7 @@ const Characteristics = styled.span`
   flex-direction: row;
   justify-content: center;
   scale: 85%;
-  color: #ebefff;
+  color: ${superLightBlue};
 
   & h2 {
     margin: 5px 20px;
@@ -86,7 +88,7 @@ const Gender = styled.h2`
 `;
 
 const Divisor = styled.hr`
-  color: #ebefff;
+  color: ${superLightBlue};
   scale: 75%;
 `;
 

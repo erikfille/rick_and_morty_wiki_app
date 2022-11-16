@@ -1,21 +1,26 @@
 import Card from "./Card";
 import styled from "styled-components";
+import {darkBlue, lightBlue, superLightBlue} from '../styles/GlobalStyles.js'
+
 
 const CardsContainer = styled.div`
   display: center;
+  background: inherit;
+  background: linear-gradient(113deg, rgba(19,18,38,0.25) 0%, rgba(19,18,38,0.25) 49%, rgba(242,68,114,0.25) 66%, rgba(19,18,38,0.25) 91%);
 
   & div {
+    isolation: isolate;
     margin: 30px;
     transition: 0.75s;
-    background: linear-gradient(145deg, #f0f0f0, #cacaca);
-    box-shadow: 6px 6px 22px #5a5a5a, -6px -6px 22px #ffffff;
+    background: linear-gradient(145deg, #ffffff, #cacaca);
+    // box-shadow: 3px 3px 10px #5a5a5a, -3px -3px 10px #ffffff;
 
     & h2 {
-      color: #0f0c1d;
+      color: ${darkBlue};
     }
 
     & span {
-      color: #0f0c1d;
+      color: ${darkBlue};
     }
 
     & button {
@@ -25,23 +30,23 @@ const CardsContainer = styled.div`
 
     &:hover {
       border-radius: 30px;
-      background: linear-gradient(145deg, #283A7D, #0f0c1d);
-      box-shadow: 6px 6px 22px #0f0c1d, -6px -6px 22px #283A7D;
+      background: linear-gradient(145deg, ${lightBlue}, ${darkBlue});
+      box-shadow: 4px 4px 15px ${darkBlue}, -4px -4px 15px ${lightBlue};
       scale: 103%;
       transition: 0.75s;
 
       & h2 {
-        color: #ebefff;
+        color: ${superLightBlue};
       }
 
       & span h2 {
-        color: #ebefff;
+        color: ${superLightBlue};
       }
 
       & button {
         font-size: 16px;
         color: red;
-        border: #ebefff solid 1px;
+        border: ${superLightBlue} solid 1px;
         font-weight: bold;
         transition: 0.5s;
         border-radius: 5px;

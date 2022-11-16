@@ -1,5 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
+let darkBlue = '#131226'
+let lightBlue = '#5D5ABF'
+let darkPink = '#F24472'
+let lightPink = '#D973B5'
+let superLightBlue = '#ebefff'
+
 const GlobalStyles = createGlobalStyle`
 
 
@@ -15,3 +21,5 @@ body {
 `;
 
 export default GlobalStyles;
+
+export {darkBlue, darkPink, lightBlue, lightPink, superLightBlue}
