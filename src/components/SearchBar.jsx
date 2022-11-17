@@ -24,6 +24,7 @@ const DivStyle = styled.div`
     border-radius: 0px 5px 5px 0px;
     background: linear-gradient(145deg, ${lightBlue}, ${darkBlue});
     box-shadow: 0px 0px 2px ${darkBlue}, 0px 0px 2px ${lightBlue};
+    cursor: pointer;
     }
   }
 
