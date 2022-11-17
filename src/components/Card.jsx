@@ -72,7 +72,7 @@ const Characteristics = styled.span`
 
 const Name = styled.h2`
   font-size: 24px;
-  padding: 5px;
+  padding-bottom: 10px;
   color: white;
   margin: 10px 0px 0px 0px;
 `;
@@ -88,7 +88,7 @@ const Gender = styled.h2`
 `;
 
 const Divisor = styled.hr`
-  color: ${superLightBlue};
+  color: ${lightBlue};
   scale: 75%;
 `;
 
