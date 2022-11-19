@@ -94,8 +94,8 @@ const Divisor = styled.hr`
 
 export default function Card(props) {
   return (
-    <CardContainer>
-      <button onClick={props.onClose}>X</button>
+    <CardContainer key={props.name}>
+      <button onClick={() => props.onClose(props.name)}>X</button>
       <Divisor />
       <Name>{props.name}</Name>
       <img src={props.image} alt={props.name} />

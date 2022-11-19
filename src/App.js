@@ -1,38 +1,71 @@
-// import './App.css'
-import Card from './components/Card.jsx'
-import Cards from './components/Cards.jsx'
-import SearchBar from './components/SearchBar.jsx'
-import characters, { Rick } from './data.js'
-import GlobalStyles from './styles/GlobalStyles'
+import Cards from "./components/Cards.jsx";
+import Nav from "./components/Nav.jsx";
+// import characters from './data.js'
+import GlobalStyles from "./styles/GlobalStyles";
+import { useState } from "react";
 
-function App () {
+function App() {
+  const [characters, setCharacters] = useState([]);
+
+  let noRepeat = (data) => {
+    for (let char of characters) {
+      if (char.name === data.name) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  function onSearch(character) {
+    fetch(`https://rickandmortyapi.com/api/character/${character}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (noRepeat(data)) {
+          return window.alert("El personaje ya se ha buscado");
+        } else {
+          if (data.name) {
+            setCharacters((oldChars) => [...oldChars, data]);
+          } else {
+            window.alert("No hay personajes con ese ID");
+          }
+        }
+      });
+  }
+
+  function randomSearch(character) {
+    fetch(`https://rickandmortyapi.com/api/character/${character}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (noRepeat(data)) {
+          return window.alert("El personaje ya se ha buscado");
+        } else {
+          if (data.name) {
+            setCharacters((oldChars) => [...oldChars, data]);
+          } else {
+            window.alert("No hay personajes con ese ID");
+          }
+        }
+      });
+  }
+
+  let onClose = (e) => {
+    let filtrados = characters.filter((char) => char.name !== e);
+    setCharacters(filtrados);
+  };
+
   return (
-    <div className='App' style={{ padding: '25px' }}>
-      <GlobalStyles/>
+    <div className="App" style={{ padding: "25px" }}>
+      <GlobalStyles />
       <div>
-        <Card
-          name={Rick.name}
-          species={Rick.species}
-          gender={Rick.gender}
-          image={Rick.image}
-          onClose={() => window.alert('Emulamos que se cierra la card')}
-        />
+        <Nav onSearch={onSearch} randomSearch={randomSearch} />
       </div>
       <hr />
       <div>
-        <Cards
-          characters={characters}
-          onClose={() => window.alert('Emulamos que se cierra la card')}
-        />
+        <Cards characters={characters} onClose={onClose} />
       </div>
       <hr />
-      <div>
-        <SearchBar
-          onSearch={(characterID) => window.alert(characterID)}
-        />
-      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
