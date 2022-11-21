@@ -9,7 +9,6 @@ const CardContainer = styled.div`
   position: center;
   border-radius: 30px;
   background: linear-gradient(145deg, ${lightBlue}, ${darkBlue});
-  // box-shadow: 3px 3px 10px ${darkBlue}, -3px -3px 10px ${lightBlue};
   margin: 30px;
   transition: 0.75s;
 
@@ -95,10 +94,10 @@ const Divisor = styled.hr`
 export default function Card(props) {
   return (
     <CardContainer key={props.name}>
-      <button onClick={() => props.onClose(props.name)}>X</button>
+      <button onClick={() => props.onClose(props.id)}>X</button>
       <Divisor />
       <Name>{props.name}</Name>
-      <img src={props.image} alt={props.name} />
+      <img src={props.image} alt={props.id} />
       <Characteristics>
         <Species>{props.species}</Species>
         <hr />

@@ -1,6 +1,5 @@
 import Cards from "./components/Cards.jsx";
 import Nav from "./components/Nav.jsx";
-// import characters from './data.js'
 import GlobalStyles from "./styles/GlobalStyles";
 import { useState } from "react";
 
@@ -49,7 +48,7 @@ function App() {
   }
 
   let onClose = (e) => {
-    let filtrados = characters.filter((char) => char.name !== e);
+    let filtrados = characters.filter((char) => char.id !== e);
     setCharacters(filtrados);
   };
 
