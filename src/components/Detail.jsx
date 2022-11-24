@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { darkBlue, lightBlue, superLightBlue } from "../styles/GlobalStyles.js";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const DetailContainer = styled.div`
   padding: 10px 0px 0px 0px;
@@ -121,7 +121,7 @@ export default function Detail() {
         console.log(char);
         if (char.name) {
           setCharacter(char);
-          console.log("mounted")
+          console.log("mounted");
         } else {
           window.alert("No hay personajes con ese ID");
         }
@@ -137,6 +137,12 @@ export default function Detail() {
       }
     }, 5000);
   }, [detailId]);
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/");
+  };
 
   return (
     <DetailContainer>
@@ -164,9 +170,7 @@ export default function Detail() {
         <span>{character.origin.name}</span>
       </div>
       <hr />
-      <Link to="/">
-        <button>Home Dimension</button>
-      </Link>
+      <button onClick={handleClick}>Home Dimension</button>
     </DetailContainer>
   );
 }

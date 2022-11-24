@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import SearchBar from "./SearchBar.jsx";
 
 const NavDiv = styled.div`
@@ -24,11 +24,11 @@ const NavDiv = styled.div`
 export default function Nav(props) {
   return (
     <NavDiv>
-      <Link to="/">
+      <NavLink to="/">
         <img src="" alt="RickAndMortyLogo" />
-      </Link>
+      </NavLink>
       <SearchBar onSearch={props.onSearch} randomSearch={props.randomSearch} />
-      <Link to="/about">About</Link>
+      <NavLink to="/about">About</NavLink>
     </NavDiv>
   );
 }

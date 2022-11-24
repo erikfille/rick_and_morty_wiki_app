@@ -12,12 +12,12 @@ export default function Cards(props) {
 
   let cardList = props.characters.map((c) => (
     <Card
+      key={c.id}
       id={c.id}
       name={c.name}
       species={c.species}
       gender={c.gender}
       image={c.image}
-      key={c.id}
       onClose={props.onClose}
     />
   ));

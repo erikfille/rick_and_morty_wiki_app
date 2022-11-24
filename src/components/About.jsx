@@ -105,7 +105,7 @@ export default function About() {
     <AboutMe>
       <AboutContainer>
         <div>
-          <h1>Erik Filleaudeau</h1>
+          <h1>Creado por Erik Filleaudeau</h1>
         </div>
         <hr />
           <img

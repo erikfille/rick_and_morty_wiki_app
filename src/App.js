@@ -1,6 +1,6 @@
-import GlobalStyles from "./styles/GlobalStyles";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import GlobalStyles from "./styles/GlobalStyles";
 import Cards from "./components/Cards.jsx";
 import Nav from "./components/Nav.jsx";
 import About from "./components/About.jsx";
@@ -62,9 +62,9 @@ function App() {
       <Nav onSearch={onSearch} randomSearch={randomSearch} />
       <hr />
       <Routes>
-        <Route path="/" element={<Cards characters={characters} onClose={onClose} />}/>
-        <Route path="/detail/:detailId" element={<Detail />} />
+        <Route path="/" element={<Cards characters={characters} onClose={onClose} />} />
         <Route path="/About" element={<About />} />
+        <Route path="/detail/:detailId" element={<Detail />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
       <hr />
