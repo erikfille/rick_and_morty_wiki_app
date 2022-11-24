@@ -8,6 +8,10 @@ const DivStyle = styled.div`
   padding-top: 15px;
   scale: 125%;
 
+  input {
+    width: fit-content;
+  }
+
   button {
     padding: 3px 8px;
     color: ${darkBlue};
@@ -36,16 +40,17 @@ const DivStyle = styled.div`
   }
 `;
 
+
 export default function SearchBar(props) {
 
-  const [ charName, setCharName ] = useState()
+  const [ charName, setCharName ] = useState("Buscar numeros del 1 al 826")
 
   let handleInputChange = (e) => {
     setCharName(e.target.value);
    };
 
   function randomize() {
-    return Math.floor(Math.random() * 826)
+    return Math.floor(Math.random() * 825)
   }
 
   return (

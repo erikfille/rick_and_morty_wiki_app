@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import {darkBlue, lightBlue, superLightBlue} from '../styles/GlobalStyles.js'
-
+import { darkBlue, lightBlue, superLightBlue } from "../styles/GlobalStyles.js";
+import {Link} from "react-router-dom";
 
 const CardContainer = styled.div`
   padding: 10px 0px 0px 0px;
@@ -11,6 +11,7 @@ const CardContainer = styled.div`
   background: linear-gradient(145deg, ${lightBlue}, ${darkBlue});
   margin: 30px;
   transition: 0.75s;
+  
 
   &:hover {
     border-radius: 30px;
@@ -92,11 +93,14 @@ const Divisor = styled.hr`
 `;
 
 export default function Card(props) {
+  const { id } = props
   return (
     <CardContainer key={props.name}>
       <button onClick={() => props.onClose(props.id)}>X</button>
       <Divisor />
-      <Name>{props.name}</Name>
+      <Link to={`/detail/${id}`}>
+        <Name>{props.name}</Name>
+      </Link>
       <img src={props.image} alt={props.id} />
       <Characteristics>
         <Species>{props.species}</Species>

@@ -1,7 +1,11 @@
-import Cards from "./components/Cards.jsx";
-import Nav from "./components/Nav.jsx";
 import GlobalStyles from "./styles/GlobalStyles";
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Cards from "./components/Cards.jsx";
+import Nav from "./components/Nav.jsx";
+import About from "./components/About.jsx";
+import Detail from "./components/Detail.jsx";
+import Error404 from "./components/Error404.jsx";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -55,13 +59,14 @@ function App() {
   return (
     <div className="App" style={{ padding: "25px" }}>
       <GlobalStyles />
-      <div>
-        <Nav onSearch={onSearch} randomSearch={randomSearch} />
-      </div>
+      <Nav onSearch={onSearch} randomSearch={randomSearch} />
       <hr />
-      <div>
-        <Cards characters={characters} onClose={onClose} />
-      </div>
+      <Routes>
+        <Route path="/" element={<Cards characters={characters} onClose={onClose} />}/>
+        <Route path="/detail/:detailId" element={<Detail />} />
+        <Route path="/About" element={<About />} />
+        <Route path="*" element={<Error404 />} />
+      </Routes>
       <hr />
     </div>
   );
