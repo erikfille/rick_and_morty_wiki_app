@@ -55,7 +55,7 @@ export default function SearchBar(props) {
 
   return (
     <DivStyle>
-      <input type="search" name="nameInput" value={charName} onChange={handleInputChange} />
+      <input type="search" name="nameInput" placeholder="Buscar numeros del 1 al 826" value={charName} onChange={handleInputChange} />
       <button onClick={() => props.onSearch(charName)}>
         Agregar
       </button>
