@@ -11,6 +11,8 @@ const CardContainer = styled.div`
   background: linear-gradient(145deg, ${lightBlue}, ${darkBlue});
   margin: 30px;
   transition: 0.75s;
+  text-decoration:none;
+
 
   &:hover {
     border-radius: 30px;
@@ -50,6 +52,10 @@ const CardContainer = styled.div`
       background-color: red;
       color: white;
     }
+  }
+
+  & a {
+    text-decoration:none;
   }
 `;
 

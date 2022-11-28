@@ -32,7 +32,7 @@ function App() {
   }
 
   useEffect(() => {
-    !access && navigate("/");
+    access === false && navigate("/");
   }, [access]);
 
   let noRepeat = (data) => {

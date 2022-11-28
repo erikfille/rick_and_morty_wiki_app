@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar.jsx";
 import { darkBlue, lightBlue, superLightBlue } from "../styles/GlobalStyles.js";
 
@@ -41,17 +41,22 @@ const NavDiv = styled.div`
       cursor: pointer;
     }
   }
+
+  & a {
+    color: white;
+    text-decoration:none;
+  }
 `;
 
 export default function Nav(props) {
   const { logout } = props
   return (
     <NavDiv>
-      <NavLink to="/home">
+      <Link to="/home">
         <img src="" alt="RickAndMortyLogo" />
-      </NavLink>
+      </Link>
       <SearchBar onSearch={props.onSearch} randomSearch={props.randomSearch} />
-      <NavLink to="/about">About</NavLink>
+      <Link to="/about">About</Link>
       <button onClick={() => logout()}>Logout</button>
     </NavDiv>
   );
