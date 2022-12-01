@@ -141,7 +141,7 @@ export default function Detail() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   return (

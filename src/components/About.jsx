@@ -109,7 +109,7 @@ export default function About() {
         </div>
         <hr />
           <img
-            src="https://scontent.faep9-2.fna.fbcdn.net/v/t39.30808-6/239961377_1376847409364900_5436563740580591542_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=zGni4KL1QTkAX8dQJFz&tn=-yhT4gZ5KbpNvOlf&_nc_ht=scontent.faep9-2.fna&oh=00_AfCcOxdD9V9NFwcqu3pPRD5xbq8i3eJQMScxiRiAmWB0dg&oe=6381795B"
+            src="https://media-exp1.licdn.com/dms/image/D4D03AQFYLr0OiTvgRA/profile-displayphoto-shrink_800_800/0/1668778968006?e=1675296000&v=beta&t=RvOWg7p8d8VFd4n8XXKySaXq2O36bMP9PSHfZjb5dY0"
             alt="Foto de Erik"
             width="100%"
             height= "auto"
@@ -118,7 +118,7 @@ export default function About() {
         <Characteristics>
           <span>Developer</span>
           <hr />
-          <span>Hombre</span>
+          <span>Hombre</span> 
         </Characteristics>
         <div>
           <p>

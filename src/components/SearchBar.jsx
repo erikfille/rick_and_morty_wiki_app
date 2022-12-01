@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { darkBlue, lightBlue, superLightBlue } from "../styles/GlobalStyles.js";
 import { useState } from "react";
 
-
 const DivStyle = styled.div`
   padding-top: 15px;
   scale: 125%;
@@ -40,23 +39,36 @@ const DivStyle = styled.div`
   }
 `;
 
-
 export default function SearchBar(props) {
-
-  const [ charName, setCharName ] = useState("Buscar numeros del 1 al 826")
+  const [charName, setCharName] = useState("");
 
   let handleInputChange = (e) => {
     setCharName(e.target.value);
-   };
+  };
 
   function randomize() {
-    return Math.floor(Math.random() * 825)
+    return Math.floor(Math.random() * 825);
   }
+
+  let cleanInput = () => {
+    setCharName("");
+  };
 
   return (
     <DivStyle>
-      <input type="search" name="nameInput" placeholder="Buscar numeros del 1 al 826" value={charName} onChange={handleInputChange} />
-      <button onClick={() => props.onSearch(charName)}>
+      <input
+        type="search"
+        name="nameInput"
+        placeholder="Buscar numeros del 1 al 826"
+        value={charName}
+        onChange={handleInputChange}
+      />
+      <button
+        onClick={() => {
+          props.onSearch(charName);
+          cleanInput();
+        }}
+      >
         Agregar
       </button>
       <button onClick={() => props.randomSearch(randomize())}>
