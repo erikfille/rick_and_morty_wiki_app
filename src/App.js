@@ -7,6 +7,7 @@ import About from "./components/About.jsx";
 import Detail from "./components/Detail.jsx";
 import Error404 from "./components/Error404.jsx";
 import Form from "./components/Form/Form.jsx";
+import Favorites from "./components/Favorites/Favorites"
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -23,6 +24,8 @@ function App() {
     if (userData.username === username && userData.password === password) {
       setAccess(true);
       navigate("/home");
+    } else {
+      window.alert("Usuario o contraseña incorrectos")
     }
   }
 
@@ -33,7 +36,7 @@ function App() {
 
   useEffect(() => {
     access === false && navigate("/");
-  }, [access]);
+  }, [access, navigate]);
 
   let noRepeat = (data) => {
     for (let char of characters) {
@@ -91,6 +94,7 @@ function App() {
         <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:detailId" element={<Detail />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
       <hr />

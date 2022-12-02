@@ -118,7 +118,6 @@ export default function Detail() {
     fetch(`https://rickandmortyapi.com/api/character/${detailId}`)
       .then((response) => response.json())
       .then((char) => {
-        console.log(char);
         if (char.name) {
           setCharacter(char);
           console.log("mounted");

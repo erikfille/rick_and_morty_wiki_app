@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { darkBlue, lightBlue, superLightBlue } from "../styles/GlobalStyles.js";
 import { Link } from "react-router-dom";
+import { fav, unFav } from "../redux/actions";
+import { connect } from "react-redux";
 
 const CardContainer = styled.div`
   padding: 10px 0px 0px 0px;
@@ -11,8 +13,7 @@ const CardContainer = styled.div`
   background: linear-gradient(145deg, ${lightBlue}, ${darkBlue});
   margin: 30px;
   transition: 0.75s;
-  text-decoration:none;
-
+  text-decoration: none;
 
   &:hover {
     border-radius: 30px;
@@ -55,7 +56,7 @@ const CardContainer = styled.div`
   }
 
   & a {
-    text-decoration:none;
+    text-decoration: none;
   }
 `;
 
@@ -97,10 +98,39 @@ const Divisor = styled.hr`
   scale: 75%;
 `;
 
-export default function Card(props) {
-  const { id } = props;
+export function Card(props) {
+  const { id, fav, unFav, myFavorites } = props;
+
+  const [isFav, setIsFav] = React.useState(false);
+
+
+
+  let handleFavorite = () => {
+    if (isFav) {
+      setIsFav(false);
+      unFav(id);
+    }
+    else {
+      setIsFav(true);
+      fav(props);
+    }
+  };
+
+  useEffect(() => {
+    myFavorites.forEach((fav) => {
+      if (fav.id === id) {
+        setIsFav(true);
+      }
+    });
+  }, [myFavorites, id]);
+
   return (
     <CardContainer key={props.name}>
+      {isFav ? (
+        <button onClick={handleFavorite}>❤️</button>
+      ) : (
+        <button onClick={handleFavorite}>🤍</button>
+      )}
       <button onClick={() => props.onClose(props.id)}>X</button>
       <Divisor />
       <Link to={`/detail/${id}`}>
@@ -115,3 +145,20 @@ export default function Card(props) {
     </CardContainer>
   );
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fav: function (props) {
+      dispatch(fav(props));
+    },
+    unFav: function (id) {
+      dispatch(unFav(id));
+    },
+  };
+}
+
+let mapStateToProps = (state) => ({
+  myFavorites: state.myFavorites,
+});
+
+export default connect(mapStateToProps, {fav, unFav})(Card);

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar.jsx";
 import { darkBlue, lightBlue, superLightBlue } from "../styles/GlobalStyles.js";
+import Logo from '../assets/RickMortyLogo.png'
 
 const NavDiv = styled.div`
   display: flex;
@@ -53,8 +54,9 @@ export default function Nav(props) {
   return (
     <NavDiv>
       <Link to="/home">
-        <img src="" alt="RickAndMortyLogo" />
+        <img src={Logo} alt="RickAndMortyLogo" width="200px" />
       </Link>
+      <Link to="/favorites">Favorites</Link>
       <SearchBar onSearch={props.onSearch} randomSearch={props.randomSearch} />
       <Link to="/about">About</Link>
       <button onClick={() => logout()}>Logout</button>
