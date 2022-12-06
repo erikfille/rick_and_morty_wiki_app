@@ -63,8 +63,8 @@ export default function Form(props) {
   const { login } = props;
 
   const [userData, setUserData] = useState({
-    username: "",
-    password: "",
+    username: "mailfalso123@gmail.com",
+    password: "ContraseñaFalsa123",
   });
 
   const [errors, setErrors] = useState({
