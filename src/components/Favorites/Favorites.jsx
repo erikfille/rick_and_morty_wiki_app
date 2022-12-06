@@ -1,6 +1,7 @@
 import Card from ".././Card";
 import styled from "styled-components";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { orderCards, filterCards } from "../../redux/actions";
 
 const CardsContainer = styled.div`
   display: center;
@@ -14,8 +15,21 @@ const CardsContainer = styled.div`
   );
 `;
 
-export function Favorites(props) {
-  let favs = props.myFavorites.map((c) => (
+export default function Favorites(props) {
+  const dispatch = useDispatch();
+  const myFavorites = useSelector((state) => state.myFavorites);
+
+  function onSelect(e) {
+    e.target.value === "Ascendente" && dispatch(orderCards(e.target.value));
+    e.target.value === "Descendente" && dispatch(orderCards(e.target.value));
+    e.target.value === "Male" && dispatch(filterCards(e.target.value));
+    e.target.value === "Female" && dispatch(filterCards(e.target.value));
+    e.target.value === "unknown" && dispatch(filterCards(e.target.value));
+    e.target.value === "Genderless" && dispatch(filterCards(e.target.value));
+  }
+
+
+  let favs = myFavorites.map((c) => (
     <Card
       key={c.id}
       id={c.id}
@@ -25,11 +39,40 @@ export function Favorites(props) {
       image={c.image}
     />
   ));
-  return <CardsContainer>{favs}</CardsContainer>;
+
+  return (
+    <div>
+      <div>
+        <select onChange={onSelect}>
+          <option value="Ascendente">
+            Ascendente
+          </option>
+          <option value="Descendente">
+            Descendente
+          </option>
+        </select>
+        <select select onChange={onSelect}>
+          <option value="Male">
+            Male
+          </option>
+          <option value="Female">
+            Female
+          </option>
+          <option value="Genderless">
+            Genderless
+          </option>
+          <option value="unknown">
+            unknown
+          </option>
+        </select>
+      </div>
+      <CardsContainer>{favs}</CardsContainer>
+    </div>
+  );
 }
 
-let mapStateToProps = (state) => ({
-  myFavorites: state.myFavorites,
-});
+// let mapStateToProps = (state) => ({
+//   myFavorites: state.myFavorites,
+// });
 
-export default connect(mapStateToProps)(Favorites);
+// export default connect(mapStateToProps)(Favorites);
