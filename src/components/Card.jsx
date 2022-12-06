@@ -14,6 +14,7 @@ const CardContainer = styled.div`
   margin: 30px;
   transition: 0.75s;
   text-decoration: none;
+  
 
   &:hover {
     border-radius: 30px;
@@ -53,11 +54,32 @@ const CardContainer = styled.div`
       background-color: red;
       color: white;
     }
+
+    &.fav {
+      border: none;
+      transition: all 0.75s;
+      background-color: transparent;
+    }
+  }
+
+
+
+  .fav {
+    border: none;
+    transition: all 0.75s;
+    background-color: transparent;
+    z-index: 10;
+
+    &:hover {
+      font-size: 18px;
+      border-radius: 5px;
+    }
   }
 
   & a {
     text-decoration: none;
   }
+
 `;
 
 const Characteristics = styled.span`
@@ -103,14 +125,11 @@ export function Card(props) {
 
   const [isFav, setIsFav] = React.useState(false);
 
-
-
   let handleFavorite = () => {
     if (isFav) {
       setIsFav(false);
       unFav(id);
-    }
-    else {
+    } else {
       setIsFav(true);
       fav(props);
     }
@@ -126,12 +145,16 @@ export function Card(props) {
 
   return (
     <CardContainer key={props.name}>
-      {isFav ? (
-        <button onClick={handleFavorite}>❤️</button>
-      ) : (
-        <button onClick={handleFavorite}>🤍</button>
-      )}
       <button onClick={() => props.onClose(props.id)}>X</button>
+      {isFav ? (
+        <button onClick={handleFavorite} className="fav">
+          ❤️
+        </button>
+      ) : (
+        <button onClick={handleFavorite} className="fav">
+          🤍
+        </button>
+      )}
       <Divisor />
       <Link to={`/detail/${id}`}>
         <Name>{props.name}</Name>
@@ -161,4 +184,4 @@ let mapStateToProps = (state) => ({
   myFavorites: state.myFavorites,
 });
 
-export default connect(mapStateToProps, {fav, unFav})(Card);
+export default connect(mapStateToProps, { fav, unFav })(Card);
